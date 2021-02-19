@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, FormControl, Input, InputLabel } from '@material-ui/core';
+import { Button, FormControl, Input } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { doLogin } from '../store/authSlice';
 

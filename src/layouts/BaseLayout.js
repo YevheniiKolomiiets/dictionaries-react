@@ -1,10 +1,21 @@
+import { makeStyles } from '@material-ui/core/styles';
 import Header from '../components/Header';
 
+const useStyles = makeStyles((theme) => ({
+  page: {
+    padding: theme.spacing(1),
+    display: 'flex',
+    justifyContent: 'center',
+  },
+}));
+
 const BaseLayout = ({ children }) => {
+  const classes = useStyles();
+
   return (
     <div>
       <Header />
-      {children}
+      <main className={classes.page}>{children}</main>
     </div>
   );
 };
