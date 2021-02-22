@@ -6,9 +6,6 @@ import { CircularProgress } from '@material-ui/core';
 import DictionariesTablePublic from '../components/DictionariesTablePublic';
 
 const useStyles = makeStyles((theme) => ({
-  page: {
-    padding: theme.spacing(1),
-  },
   error: {
     color: theme.palette.error.main,
   },
@@ -16,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Homepage = () => {
   const dispatch = useDispatch();
-  const { dictionaries, isLoading, error } = useSelector((state) => state.dictionaries);
+  const { dictionaries, isDictionariesLoading, error } = useSelector((state) => state.dictionaries);
 
   const classes = useStyles();
 
@@ -28,7 +25,7 @@ const Homepage = () => {
     return <div className={classes.error}>error</div>;
   }
 
-  return <>{isLoading ? <CircularProgress /> : <DictionariesTablePublic dictionaries={dictionaries} />}</>;
+  return <>{isDictionariesLoading ? <CircularProgress /> : <DictionariesTablePublic dictionaries={dictionaries} />}</>;
 };
 
 export default Homepage;

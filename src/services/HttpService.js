@@ -5,9 +5,10 @@ import { logout } from '../store/authSlice';
 const HttpService = {
   setupInterceptors: () => {
     axios.interceptors.request.use((config) => {
-      const user = localStorage.getItem('user');
-      if (user?.token) {
-        config.headers['Authorization'] = `Bearer ${user.token}`;
+      const user = JSON.parse(localStorage.getItem('user'));
+
+      if (user?.authToken) {
+        config.headers['Authorization'] = `Bearer ${user.authToken}`;
       }
       return config;
     });
